@@ -9,9 +9,9 @@ $productsPrice = $_GET['product']; // запрос с поля product
 $days = $_GET['days']; // запрос с поля дни
 $servicesPrice = $_GET['checks']; // запрос с поля сервисов
 
+$productsInfo = $dbh->make_query('SELECT * FROM `a25_products`');
 // вычисление стоимости автомобиля и сервисов
-if (isset($_GET['product'])) { 
-    $productsInfo = $dbh->make_query('SELECT * FROM `a25_products`');
+if (isset($_GET['product'])) {
     foreach ($productsInfo as $key => $value) {
         if ($value["PRICE"] == $productsPrice) {
             $carName = $value["NAME"];
